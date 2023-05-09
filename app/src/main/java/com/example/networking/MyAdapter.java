@@ -23,8 +23,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.name.setText(listOfMountains.get(position).getName());
-        holder.size.setText(String.valueOf(listOfMountains.get(position).getName()));
+        Mountain mountain = listOfMountains.get(position);
+        String mountainInfo = mountain.getName() + " " + mountain.getSize() + " " + mountain.getCost();
+        holder.mountainInfo.setText(mountainInfo);
     }
 
     @Override

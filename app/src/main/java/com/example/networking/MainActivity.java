@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -37,28 +38,31 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new JsonFile(this, this).execute(JSON_FILE);
-        RecyclerView view = findViewById(R.id.recyclerview);
-        listOfMountains = new ArrayList<Mountain>();
-        adapter = new MyAdapter(listOfMountains);
-        view.setLayoutManager(new LinearLayoutManager(this));
-        view.setAdapter(adapter);
-
-        String s = readFile("mountains.json");
-        Log.d("MainActivity","The following text was found in textfile:\n\n"+s);
-
-        Gson gson = new Gson();
-        listOfMountains = gson.fromJson(s,ArrayList .class);
-
-        for (int i = 0; i < listOfMountains.size(); i++) {
-            Log.d("MainActivity","Hittade en fitta: " +i);
-        };
+        new JsonTask( this).execute(JSON_URL);
     }
 
 
     @Override
     public void onPostExecute(String json) {
-        Log.d("MainActivity", json);
-    }
+        if (json != null){
+            Log.d("MainActivity", json);
 
+            Gson gson = new Gson();
+            listOfMountains = gson.fromJson(json, new TypeToken<ArrayList<Mountain>>(){}.getType());
+            adapter = new MyAdapter(listOfMountains);
+            adapter.notifyDataSetChanged();
+
+            RecyclerView view = findViewById(R.id.recyclerview);
+            listOfMountains = new ArrayList<Mountain>();
+            view.setLayoutManager(new LinearLayoutManager(this));
+            view.setAdapter(adapter);
+
+            adapter.notifyDataSetChanged();
+        }
+        else {
+            Log.d("MainActivity", "JSON response: Null.");
+        }
+        String s = readFile("mountains.json");
+        Log.d("MainActivity","The following text was found in textfile:\n\n"+s);
+    }
 }
