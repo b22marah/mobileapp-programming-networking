@@ -7,10 +7,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
-    public TextView mountainInfo;
+    public TextView name;
+    public TextView size;
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
-        mountainInfo = itemView.findViewById(R.id.mountain_info);
+        name = itemView.findViewById(R.id.name);
+        size = itemView.findViewById(R.id.size);
     }
 }

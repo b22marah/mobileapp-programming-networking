@@ -25,5 +25,4 @@ public class JsonFile {
             Log.d("JsonFile", exception.getMessage());
         }
     }
-
 }
