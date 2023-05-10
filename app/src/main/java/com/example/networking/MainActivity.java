@@ -8,10 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 @SuppressWarnings("FieldCanBeLocal")
@@ -45,14 +48,17 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         view.setAdapter(adapter);
 
         String s = readFile("mountains.json");
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<Mountain>>() {}.getType();
+        ArrayList<Mountain> data = gson.fromJson(s, type);
+        listOfMountains.addAll(data);
+        /// HÄRA
+        adapter.notifyDataSetChanged();
         Log.d("MainActivity","The following text was found in textfile:\n\n"+s);
 
-        Gson gson = new Gson();
-        listOfMountains = gson.fromJson(s,ArrayList .class);
-
         for (int i = 0; i < listOfMountains.size(); i++) {
-            Log.d("MainActivity","Hittade en fitta: " +i);
-        };
+            Log.d("==>", String.valueOf(listOfMountains.get(i)));
+        }
     }
 
 
@@ -60,5 +66,4 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     public void onPostExecute(String json) {
         Log.d("MainActivity", json);
     }
-
 }

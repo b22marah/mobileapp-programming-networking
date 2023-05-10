@@ -3,6 +3,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.name.setText(listOfMountains.get(position).getName());
-        holder.size.setText(String.valueOf(listOfMountains.get(position).getName()));
+        holder.size.setText(String.valueOf(listOfMountains.get(position).getSize()));
     }
 
     @Override
