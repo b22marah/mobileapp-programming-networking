@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Type type = new TypeToken<ArrayList<Mountain>>() {}.getType();
         ArrayList<Mountain> data = gson.fromJson(s, type);
         listOfMountains.addAll(data);
-        /// HÄRA
         adapter.notifyDataSetChanged();
         Log.d("MainActivity","The following text was found in textfile:\n\n"+s);
 
