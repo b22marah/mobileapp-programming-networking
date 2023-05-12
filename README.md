@@ -1,4 +1,4 @@
-#1: Att skapa min RecyclerView:
+# 1: Att skapa min RecyclerView:
 
 Det absolut första jag börjde med att göra under denna uppgiften var
 att skapa min RecyclerView. RecyclerView:n skapades i activity_main.xml
@@ -23,7 +23,7 @@ Design läge.
 />
 ```
 
-#2: Att skapa Items till min RecyclerView:
+# 2: Att skapa Items till min RecyclerView:
 
 Efter första steget att skapa min RecyclerView så behövde jag också
 skapa en ny XML-fil som jag döpte till recyclerview_items.xml.
@@ -42,7 +42,7 @@ för sig.
 />
 ```
 
-#3: Hämta RecyclerView i min MainActivity:
+# 3: Hämta RecyclerView i min MainActivity:
 
 Det jag gjorde efter tidigare steg var att jag började med att hämta
 min RecyclerView i min MainActivity.java. Detta gjorde jag genom att först
@@ -56,7 +56,7 @@ till min RecyclerView i activity_main.xml
 RecyclerView view = findViewById(R.id.recyclerview);
 ```
 
-#4: Att skapa ArrayList, LayoutManager och tilldela adapter:
+# 4: Att skapa ArrayList, LayoutManager och tilldela adapter:
 
 Här skapar jag "listOfMountains" som är den ArrayList som jag kommer använda 
 för att lagra all data som jag sedan kommer att använda till övriga delar av uppgiften 
@@ -79,7 +79,7 @@ view.setLayoutManager(new LinearLayoutManager(this));
 view.setAdapter(adapter);
 ```
 
-#5: JSON / GSON:
+# 5: JSON / GSON:
 
 Det jag gör i detta kapitel är att skapa en ny instans av ett tredjepartsbibliotek 
 som heter Gson. Gson är ett bibliotek som används för att konvertera JSON-data 
@@ -108,7 +108,7 @@ listOfMountains.addAll(data);
 adapter.notifyDataSetChanged();
 ```
 
-#6: Att skapa Mountains:
+# 6: Att skapa Mountains:
 
 När det kommer till min Mountain-klass så har jag skapat privata klasser för varje 
 objekt i den hämtade datan som jag vill presentera. Därefter sätter jag "regler" för dessa 
@@ -145,7 +145,7 @@ public class Mountain {
 }
 ```
 
-#7: Att skapa ViewHolder:
+# 7: Att skapa ViewHolder:
 
 Här skapas 'MyViewHolder' som är tänkt att användas för att hålla en referens till 
 TextView-elementet med ID:t "name" i varje RecyclerView. Det detta kommer att göra 
@@ -168,7 +168,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 }
 ```
 
-#8: Att skapa Adapter:
+# 8: Att skapa Adapter:
 
 När vi väl kommit hit i mitt arbete så har vi ännu inte lyckats få
 fram väldigt mycket data ännu, och detta beror på att våran adapter
@@ -214,7 +214,7 @@ funktionaliteten bakom dessa delar. Men som sagt, sammanfattningsvis så gör de
 auto-genererade funktioner att man får sin TextView med items presenterat
 på sin RecyclerView.
 
-#9: Finjusteringar:
+# 9: Finjusteringar:
 
 Det sista jag gjorde till min applikation var att finjustera positionen 
 på min recyclerview. Det jag gjorde här var att jag satte margins på varje sida av 
