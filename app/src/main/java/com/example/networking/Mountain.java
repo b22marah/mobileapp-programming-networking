@@ -11,22 +11,6 @@ public class Mountain {
         this.size = size;
     }
 
-    //public String getName() {
-      //  return name;
-    //}
-
-  //  public void setName(String name) {
-      //  this.name = name;
-    //}
-
-   // public int getSize() {
-     //   return size;
-    //}
-
-   // public void setSize(int size) {
-   //     this.size = size;
-    //}
-
     @Override
     public String toString() {
         String presentMountains = "Name: " + name + " " + " Size: " + size + " " + " Location: " + location;
